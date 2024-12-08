@@ -1,0 +1,7 @@
+select 
+Year, 
+makedate(Year, 1) as start_date,
+curdate() as today,
+timestampdiff(YEAR, makedate(Year, 1), curdate()) as years_diff
+from infectious;
+

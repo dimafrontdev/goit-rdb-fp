@@ -1,0 +1,17 @@
+drop function if exists years_diff;
+
+delimiter //
+
+create function years_diff(year year)
+returns int
+deterministic
+no sql
+begin
+	return timestampdiff(YEAR, makedate(year, 1), curdate());
+end //
+
+delimiter ;
+
+
+select years_diff(1992) as diff
+

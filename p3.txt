@@ -1,0 +1,12 @@
+select 
+	country_id,
+	AVG(Number_rabies) as average_rabies,
+	MIN(Number_rabies) as min_rabies,
+	MAX(Number_rabies) as max_rabies,
+	SUM(Number_rabies) as sub_rabies
+from infectious
+where Number_rabies is not null and Number_rabies <> ''
+group by country_id
+order by average_rabies desc
+limit 10;
+
